@@ -23,14 +23,11 @@ bot.on('message', msg => {
   onlineMembers = msg.guild.members.filter(member => member.presence.status !== "offline");
   
   if(cmd === `${prefix}hell`){
-    
-
     /*if(msg.channel.name==="hell"){
       msg.reply("Welcome to Hell")
     }else{
       msg.reply("This is the wrong channel");
     }*/
-
   }
   
   
