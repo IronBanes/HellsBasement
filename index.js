@@ -19,26 +19,21 @@ bot.on('message', msg => {
   let msgarray = msg.content.split(" ");//splits the message into two parts the command and the args later on
   let cmd = msgarray[0]; // This is the command part of the message
   let args = msgarray[1]; // this is the part of the command that tags people later on
-  let DamnedRole = msg.guild.roles.find(role => role.name === "damned");
+  let DamnedRole = msg.guild.roles.find(role => role.name === "damned");//finds the role "damned" so it can assign the role
   let mentionmember = msg.mentions.members.first();
   let onlineMembers = msg.guild.members.filter(member => member.presence.status !== "offline");
-  let mentionmembercut = mentionmember.toString().substring(2);
-  let mentionmemberadded = "<" &mentionmembercut;
-  console.log("IMPORTANT" );
-  console.log(onlineMembers.values());
-  console.log(mentionmembercut);
-  console.log(onlineMembers.forEach(id,mentionmemberadded));
 
 
 
-  /*if(cmd === `${prefix}hell`){
+  if(cmd === `${prefix}hell`){
     if(msg.channel.name==="hell")
     {
-      if(onlineMembers.equals(mentionmemberadded))
+      if(onlineMembers.has(mentionmember.id))
       {
         if(!Damnedmembers.includes(mentionmember))
         {
-          mentionmember.addRole(DamnedRole)
+          mentionmember.addRole(DamnedRole);
+          Damnedmembers.push(mentionmember);
         }
         else
         {
@@ -57,18 +52,5 @@ bot.on('message', msg => {
     
 
 
-  }*/
-  
-  
-  
-  console.log("cmd:" + cmd);
-  console.log("args:" + args);
-  console.log(prefix);
-
-
-
-
-  if (msg.content === `${PREFIX}hell`) { //~hell command doesn't work at the moment big sad
-    
   }
 });
