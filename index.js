@@ -38,7 +38,7 @@ bot.on('message', msg => {
       {
         if(!Damnedmembers.includes(mentionmember))
         {
-          mentionmember.addRole(DamnedRole);
+          mentionmember.addRole(DamnedRole)
         }
         else
         {
