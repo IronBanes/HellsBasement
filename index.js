@@ -28,7 +28,7 @@ bot.on('message', msg => {
   if(cmd === `${prefix}hell`){
     if(msg.channel.name==="hell")
     { 
-      if(!mentionmember == "")
+      if(args.length)
       {
         if(onlineMembers.has(mentionmember.id))
         {
@@ -72,7 +72,10 @@ bot.on('message', msg => {
       if(Coinflip === "Heads")
       {
         console.log(Damnedmembers);
+        let damnednumber = Damnedmembers.length;
+        console.log(damnednumber);
         
+
 
       }
     }
