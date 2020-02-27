@@ -27,30 +27,55 @@ bot.on('message', msg => {
 
   if(cmd === `${prefix}hell`){
     if(msg.channel.name==="hell")
-    {
-      if(onlineMembers.has(mentionmember.id))
+    { 
+      if(!mentionmember == "")
       {
-        if(!Damnedmembers.includes(mentionmember))
+        if(onlineMembers.has(mentionmember.id))
         {
-          mentionmember.addRole(DamnedRole);
-          Damnedmembers.push(mentionmember);
+          if(!Damnedmembers.includes(mentionmember))
+          {
+            mentionmember.addRole(DamnedRole);
+            Damnedmembers.push(mentionmember);
+            msg.channel.send(`Welcome ${mentionmember} to Hell's Basement`);
+            msg.channel.send("eventually something about ~flip");
+          }
+          else
+          {
+            msg.reply("That person is already in the game.");
+          }  
         }
         else
         {
-          msg.reply("That person is already in the game.");
-        }  
+          msg.reply("That person is not online please select another user.");
+        }
       }
       else
       {
-        msg.reply("That person is not online please select another user.");
+        msg.reply("Missing Arguments");
+      }
+      }
+      else
+      {
+        msg.reply("Sorry this is the wrong channel it needs to be in the #hell channel");
       }
     }
-    else
-    {
-      msg.reply("failed")
-    }
-    
 
+
+
+    if(cmd === `${prefix}flip`)
+    {
+    if(msg.channel.name === "hell" )
+    {
+      let Coinflip = (Math.floor(Math.random() *2)==0)? `Heads` : `Tails`;
+      msg.channel.send(Coinflip);
+      console.log(Coinflip);
+      if(Coinflip === "Heads")
+      {
+        console.log(Damnedmembers);
+        
+
+      }
+    }
 
   }
 });
